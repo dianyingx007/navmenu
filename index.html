@@ -2,9 +2,135 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title></title>
+		<title>菜单栏控件</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				border: 0;
+				box-sizing: border-box;
+			}
+			a {
+				text-decoration: none;
+				color: black;
+			}
+			ul,li{
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			header{
+				width: 100%;
+				height: 60px;
+				background-color: #00aaff;
+				position: fixed;
+				top: 0;
+			}
+			.clearboth:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			.nav_top,
+			.nav_bottom{
+				max-width: 1200px;
+				width: 100%;
+				margin: 0 auto;
+			}
+			.nav_top>ul>li,.nav_bottom>ul{
+				width: 100px;
+				float: left;
+				text-align: left;
+				padding-left: 10px;
+			}
+			.nav_top{
+				line-height: 60px;
+				font-weight: 900;
+				font-size: 20px;
+			}
+			.nav_top a {
+				color: #fff;
+			}
+			.nav_bg{
+				line-height: 40px;
+				background-color: #eef;
+			}
+			.display_none{
+				display: none;
+			}
+			.nav_bottom ul.active{
+				background-color: #fee;
+				font-size: 16px;
+				font-weight: 700;
+			}
+			.nav_bottom li.active a {
+				color: #00AAFF;
+			}
+		</style>
 	</head>
 	<body>
-		
+		<header>
+			<div class="nav_top clearboth">
+				<ul>
+					<li><a href="/">第一栏</a></li>
+					<li><a href="/">第二栏</a></li>
+					<li><a href="/">第三栏</a></li>
+					<li><a href="/">第四栏</a></li>
+					<li><a href="/">第五栏</a></li>
+					<li><a href="/">第六栏</a></li>
+					<li><a href="/">第七栏</a></li>
+				</ul>
+			</div>
+			<div class="nav_bg display_none">
+				<div class="nav_bottom clearboth">
+					<ul>
+						<li><a href="/">链接一</a></li>
+						<li><a href="/">链接二</a></li>
+						<li><a href="/">链接三</a></li>
+						<li><a href="/">链接四</a></li>
+					</ul>
+					<ul>
+						<li><a href="/">链接一</a></li>
+						<li><a href="/">链接二</a></li>
+						<li><a href="/">链接三</a></li>
+						<li><a href="/">链接四</a></li>
+					</ul>
+					<ul>
+						<li><a href="/">链接一</a></li>
+						<li><a href="/">链接二</a></li>
+						<li><a href="/">链接三</a></li>
+						<li><a href="/">链接四</a></li>
+					</ul>
+					<ul>
+						<li><a href="/">链接一</a></li>
+						<li><a href="/">链接二</a></li>
+						<li><a href="/">链接三</a></li>
+						<li><a href="/">链接四</a></li>
+					</ul>
+					<ul>
+						<li><a href="/">链接一</a></li>
+						<li><a href="/">链接二</a></li>
+						<li><a href="/">链接三</a></li>
+						<li><a href="/">链接四</a></li>
+					</ul>
+					<ul>
+						<li><a href="/">链接一</a></li>
+						<li><a href="/">链接二</a></li>
+						<li><a href="/">链接三</a></li>
+						<li><a href="/">链接四</a></li>
+					</ul>
+					<ul>
+						<li><a href="/">链接一</a></li>
+						<li><a href="/">链接二</a></li>
+						<li><a href="/">链接三</a></li>
+						<li><a href="/">链接四</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div style="height: 700px;background-color: #333;"></div>
+		<div style="height: 700px;background-color: #666;"></div>
+		<script src="js/jquery-1.11.1.js"></script>
+		<script src="js/navmenu.js"></script>
 	</body>
 </html>
