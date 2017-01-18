@@ -31,6 +31,7 @@
 				display: block;
 				clear: both;
 			}
+			/*大分辨率*/
 			.nav_top,
 			.nav_bottom{
 				max-width: 1200px;
@@ -66,12 +67,19 @@
 			.nav_bottom li.active a {
 				color: #00AAFF;
 			}
+			/*小分辨率*/
+			.icon-nav {
+				display: inline-block;
+				width: 55px;
+				height: 55px;
+				background-color: #000;
+			}
 		</style>
 	</head>
 	<body>
 		<header>
-			<div class="nav_top clearboth">
-				<ul>
+			<div class="nav_top ">
+				<ul class="clearboth">
 					<li><a href="/">第一栏</a></li>
 					<li><a href="/">第二栏</a></li>
 					<li><a href="/">第三栏</a></li>
@@ -127,6 +135,7 @@
 					</ul>
 				</div>
 			</div>
+			<div class="icon-nav"></div>
 		</header>
 		<div style="height: 700px;background-color: #333;"></div>
 		<div style="height: 700px;background-color: #666;"></div>
