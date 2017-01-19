@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var nav_top_ul = $('.nav_top ul');
+	var nav_top_ul = $('.nav_top ul').first();
 	var nav_top_li = nav_top_ul.children();
 	var nav_bg = $('.nav_bg');
 	var nav_bottom_ul = $('.nav_bottom ul');
@@ -9,15 +9,14 @@ $(document).ready(function(){
 	function remove_display(){
 		nav_bg.removeClass('display_none');
 	}
-	nav_top_ul.on('mouseenter',remove_display);
+	nav_top_li.on('mouseenter',remove_display);
 	nav_bottom_ul.on('mouseenter',remove_display);
 	/*隐藏二级菜单*/
 	function add_display(){
 		nav_bg.addClass('display_none');
 	}
+	nav_top_li.on('mouseleave',add_display);
 	nav_bottom_ul.on('mouseleave',add_display);
-	nav_top_ul.on('mouseleave',add_display);
-	
 	
 	function menu_hover(parent,child){
 		nav_bottom_ul.eq(parent.index(child)).addClass('active');

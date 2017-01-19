@@ -4,6 +4,7 @@
 		<meta charset="utf-8" />
 		<title>菜单栏控件</title>
 		<style>
+			/*default统一样式*/
 			* {
 				padding: 0;
 				margin: 0;
@@ -12,8 +13,10 @@
 			}
 			a {
 				text-decoration: none;
-				color: black;
+				color: #2fa0ec;
+				outline: none;
 			}
+			a:hover,a:focus {color: #74777b;}
 			ul,li{
 				list-style: none;
 				padding: 0;
@@ -38,13 +41,14 @@
 				width: 100%;
 				margin: 0 auto;
 			}
-			.nav_top>ul>li,.nav_bottom>ul{
+			.nav_top ul>li,.nav_bottom>ul{
 				width: 100px;
 				float: left;
 				text-align: left;
 				padding-left: 10px;
 			}
 			.nav_top{
+				height: 60px;
 				line-height: 60px;
 				font-weight: 900;
 				font-size: 20px;
@@ -65,80 +69,152 @@
 				font-weight: 700;
 			}
 			.nav_bottom li.active a {
-				color: #00AAFF;
+				color: #aaa;
 			}
 			/*小分辨率*/
 			.icon-nav {
-				display: inline-block;
-				width: 55px;
-				height: 55px;
-				background-color: #000;
+				width: 60px;
+				height: 60px;
+				background-image: url(img/menu-0.png);
+				background-size: cover;
 			}
+			@media only screen and (max-width: 750px) {
+				.min750{
+					display: none;
+				}
+				.max750 {
+					display: block;
+				}
+				/*content area*/
+				.container {
+					position: relative;
+					transition: all 0.5s;
+				}
+				/*sidenav styles*/
+				.sidenav {
+					display: block;
+					background: rgb(50,60,60);width: 150px;
+					position: fixed;
+					left: 0;
+					top: 0;
+					bottom:0;
+					padding-top: 100px;
+				}
+				.sidenav a {
+					color: white;
+				}
+				.sidenav b {
+					font: bold 16px/48px Montserrat;
+					display: block;
+					opacity: 0;
+					transform: translateX(50px);
+					transition: all 0.5s;
+					text-align: center;
+				}
+				/*动画控制*/
+				#tm:checked ~ .container {
+					margin-left: 150px;
+				}
+				#tm:checked ~ .sidenav b {
+					opacity: 1;
+					transform: translateX(0);
+				}
+				/*动画时间控制*/
+				#tm:checked ~ .sidenav li:nth-child(1) b {transition-delay: 0.08s;}
+				#tm:checked ~ .sidenav li:nth-child(2) b {transition-delay: 0.16s;}
+				#tm:checked ~ .sidenav li:nth-child(3) b {transition-delay: 0.24s;}
+				#tm:checked ~ .sidenav li:nth-child(4) b {transition-delay: 0.32s;}
+				#tm:checked ~ .sidenav li:nth-child(5) b {transition-delay: 0.40s;}
+				#tm:checked ~ .sidenav li:nth-child(6) b {transition-delay: 0.48s;}
+				#tm:checked ~ .sidenav li:nth-child(7) b {transition-delay: 0.56s;}
+			}
+			
+			
 		</style>
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.min.js"></script>
+		<![endif]-->
 	</head>
 	<body>
-		<header>
-			<div class="nav_top ">
-				<ul class="clearboth">
-					<li><a href="/">第一栏</a></li>
-					<li><a href="/">第二栏</a></li>
-					<li><a href="/">第三栏</a></li>
-					<li><a href="/">第四栏</a></li>
-					<li><a href="/">第五栏</a></li>
-					<li><a href="/">第六栏</a></li>
-					<li><a href="/">第七栏</a></li>
-				</ul>
-			</div>
-			<div class="nav_bg display_none">
-				<div class="nav_bottom clearboth">
-					<ul>
-						<li><a href="/">链接一</a></li>
-						<li><a href="/">链接二</a></li>
-						<li><a href="/">链接三</a></li>
-						<li><a href="/">链接四</a></li>
+		<!--750px分辨率下才显示-->
+		<input type="checkbox" id="tm" class="display_none" />
+		<ul class="sidenav display_none">
+			<li><a href="#"><i class=""></i><b>第一栏</b></a></li>
+			<li><a href="#"><i class=""></i><b>第二栏</b></a></li>
+			<li><a href="#"><i class=""></i><b>第三栏</b></a></li>
+			<li><a href="#"><i class=""></i><b>第四栏</b></a></li>
+			<li><a href="#"><i class=""></i><b>第五栏</b></a></li>
+			<li><a href="#"><i class=""></i><b>第六栏</b></a></li>
+			<li><a href="#"><i class=""></i><b>第七栏</b></a></li>
+		</ul>
+		<div class="container">
+			<header>
+				<div class="nav_top">
+					<ul class="clearboth min750">
+						<li><a href="/">第一栏</a></li>
+						<li><a href="/">第二栏</a></li>
+						<li><a href="/">第三栏</a></li>
+						<li><a href="/">第四栏</a></li>
+						<li><a href="/">第五栏</a></li>
+						<li><a href="/">第六栏</a></li>
+						<li><a href="/">第七栏</a></li>
 					</ul>
-					<ul>
-						<li><a href="/">链接一</a></li>
-						<li><a href="/">链接二</a></li>
-						<li><a href="/">链接三</a></li>
-						<li><a href="/">链接四</a></li>
-					</ul>
-					<ul>
-						<li><a href="/">链接一</a></li>
-						<li><a href="/">链接二</a></li>
-						<li><a href="/">链接三</a></li>
-						<li><a href="/">链接四</a></li>
-					</ul>
-					<ul>
-						<li><a href="/">链接一</a></li>
-						<li><a href="/">链接二</a></li>
-						<li><a href="/">链接三</a></li>
-						<li><a href="/">链接四</a></li>
-					</ul>
-					<ul>
-						<li><a href="/">链接一</a></li>
-						<li><a href="/">链接二</a></li>
-						<li><a href="/">链接三</a></li>
-						<li><a href="/">链接四</a></li>
-					</ul>
-					<ul>
-						<li><a href="/">链接一</a></li>
-						<li><a href="/">链接二</a></li>
-						<li><a href="/">链接三</a></li>
-						<li><a href="/">链接四</a></li>
-					</ul>
-					<ul>
-						<li><a href="/">链接一</a></li>
-						<li><a href="/">链接二</a></li>
-						<li><a href="/">链接三</a></li>
-						<li><a href="/">链接四</a></li>
+					<ul class="max750 display_none">
+						<li>
+							<label for="tm"><div class="icon-nav"></div></label>
+						</li>
 					</ul>
 				</div>
-			</div>
-			<div class="icon-nav"></div>
-		</header>
-		<div style="height: 700px;background-color: #333;"></div>
-		<div style="height: 700px;background-color: #666;"></div>
+				<div class="nav_bg display_none">
+					<div class="nav_bottom clearboth">
+						<ul>
+							<li><a href="/">链接一</a></li>
+							<li><a href="/">链接二</a></li>
+							<li><a href="/">链接三</a></li>
+							<li><a href="/">链接四</a></li>
+						</ul>
+						<ul>
+							<li><a href="/">链接一</a></li>
+							<li><a href="/">链接二</a></li>
+							<li><a href="/">链接三</a></li>
+							<li><a href="/">链接四</a></li>
+						</ul>
+						<ul>
+							<li><a href="/">链接一</a></li>
+							<li><a href="/">链接二</a></li>
+							<li><a href="/">链接三</a></li>
+							<li><a href="/">链接四</a></li>
+						</ul>
+						<ul>
+							<li><a href="/">链接一</a></li>
+							<li><a href="/">链接二</a></li>
+							<li><a href="/">链接三</a></li>
+							<li><a href="/">链接四</a></li>
+						</ul>
+						<ul>
+							<li><a href="/">链接一</a></li>
+							<li><a href="/">链接二</a></li>
+							<li><a href="/">链接三</a></li>
+							<li><a href="/">链接四</a></li>
+						</ul>
+						<ul>
+							<li><a href="/">链接一</a></li>
+							<li><a href="/">链接二</a></li>
+							<li><a href="/">链接三</a></li>
+							<li><a href="/">链接四</a></li>
+						</ul>
+						<ul>
+							<li><a href="/">链接一</a></li>
+							<li><a href="/">链接二</a></li>
+							<li><a href="/">链接三</a></li>
+							<li><a href="/">链接四</a></li>
+						</ul>
+					</div>
+				</div>
+			</header>
+			<div style="height: 700px;background-color: #333;"></div>
+			<div style="height: 700px;background-color: #666;"></div>
+		</div>
 		<script src="js/jquery-1.11.1.js"></script>
 		<script src="js/navmenu.js"></script>
 	</body>
